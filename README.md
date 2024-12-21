@@ -53,7 +53,7 @@ Please cite our paper if the code is used in your research:
 ```
 @ARTICLE{Chen2025BlurPaint,
   author={Chen, Linxu and Guo, Zhiqing and Wang, Liejun},
-  journal={ICASSP}, 
+  booktitle={ICASSP}, 
   title={BlurPaint: Image Inpainting using Blurring Diffusion Models}, 
   year={2025}}
 ```
