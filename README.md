@@ -22,7 +22,9 @@ For mask, 1 indicates the masked regions, and 0 indicates the unmasked
 regions. All images are 256X256.
 
 NOTE: See the following links for experimental data and pre-training weights:
+
 Links: https://pan.baidu.com/s/15J3z-gnjtFnuvRH8ksczKA 
+
 Extraction code: s9ae 
 
 ## Run Train:
