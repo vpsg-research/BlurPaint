@@ -1,0 +1,73 @@
+model:
+  base_learning_rate: 1e-4
+  target: inpainting.training.diffusion.blur-diffusion.BlurDiffusion
+  max_steps: 800000
+  ckpt_path: models/diffusion_models/
+
+  params:
+    log_every_t: 500
+    loss_type: l1
+    time_steps: 1000
+
+    sigma_blur_max: 4
+
+
+    first_stage_key: image
+    cond_stage_key: masked_image
+    img_size: 256
+    channels: 3
+    concat_mode: true
+    monitor: "val_ssim"
+    use_masks: True
+
+    scheduler_config:
+      target: inpainting.training.modules.lr_scheduler.LambdaWarmUpCosineScheduler
+      params:
+        verbosity_interval: 0
+        warm_up_steps: 2000
+        max_decay_steps: 200000
+        lr_start: 1
+        lr_max: 1
+        lr_min: 0.001
+
+
+    unet_config:
+      target: inpainting.training.modules.U-net.UNetModel
+      params:
+        image_size: 256
+        in_channels: 7
+        model_channels: 64
+        out_channels: 3
+        dropout: 0.1
+        attention_resolutions:
+          - 8
+          - 4
+          - 2
+        num_res_blocks: 2
+        channel_mult:
+          - 1
+          - 2
+          - 4
+          - 8
+        resblock_updown: true
+
+data:
+  target: inpainting.training.data.dataFromConfig.DataModuleFromConfig
+  params:
+    batch_size: 3
+    num_workers: 4
+    wrap: true
+
+lightning:
+  callbacks:
+    image_logger:
+      target: main.ImageLogger
+      params:
+        batch_frequency: 5000
+        max_images: 8
+        increase_log_steps: False
+
+  trainer:
+    benchmark: True
+    accumulate_grad_batches: 3
+
