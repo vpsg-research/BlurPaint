@@ -48,3 +48,12 @@ python train.py --input_path image_path --mask_path mask_path --device 0
                    --mask_path [test_mask_path] \
                    --output_path [output_path]
 ```
+# Citation
+Please cite our paper if the code is used in your research:
+```
+@ARTICLE{Chen2025BlurPaint,
+  author={Chen, Linxu and Guo, Zhiqing and Wang, Liejun},
+  journal={ICASSP}, 
+  title={BlurPaint: Image Inpainting using Blurring Diffusion Models}, 
+  year={2025}}
+```
