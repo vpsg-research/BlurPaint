@@ -2,11 +2,11 @@
 # BlurPaint: Image Inpainting using Blurring Diffusion Model
 
 
-# Running the Experiments
+## Running the Experiments
 The code has been tested on Python 3.8.10 and PyTorch 2.0.0. 
 Please refer to `environment.yml` for a list of environments that can be used to run the code.
 
-# Usage
+## Usage
 
 The models and datasets are placed in the `data/` folder as follows:
 ```bash
@@ -21,7 +21,7 @@ The models and datasets are placed in the `data/` folder as follows:
 For mask, 1 indicates the masked regions, and 0 indicates the unmasked
 regions. All images are 256X256.
 
-# Run Train:
+## Run Train:
 
 ```
   $ cd BlurPaint
@@ -40,7 +40,7 @@ if you want to train on one gpu:
 python train.py --input_path image_path --mask_path mask_path --device 0
 
 
-# Run Test:
+## Run Test:
 ```
   $ cd BlurPaint
   $ python test.py --ckpt_path [save_path] \
@@ -48,7 +48,7 @@ python train.py --input_path image_path --mask_path mask_path --device 0
                    --mask_path [test_mask_path] \
                    --output_path [output_path]
 ```
-# Citation
+## Citation
 Please cite our paper if the code is used in your research:
 ```
 @ARTICLE{Chen2025BlurPaint,
